@@ -1,53 +1,50 @@
 # iOS-AutoPackage 
 
-iOS自动化打包
+
+### 基于Xcode workSpace 生成渠道包 ###
+... 待续
+### 基于Xcode 命令行工具 自动生成渠道包 ###
+... 待续
+
+### 基于ipa母包自动生成渠道包 ###
+
+`使用说明:`
+
+./autop.sh 源包路径  目标包路径  目标包渠道id标识 目标包mask
+
+示例:
+
+./autop.sh  ./  ./Release/ channel001
+
+过程:
+
+1.解压AutoPackageDemo.ipa源文件
+
+2.在Payload/_CodeSignature 里面新建 AppInfo.plist文件,
+并填充key为channelid,value为channel001的键值对
+
+3.压缩生成目标文件
 
 
-如何使用:
-.......xxx.sh 参数1 参数2 参数3 参数4
-
-结果:
-解压Maxer.ipa源文件,会在Payload/_CodeSignature 里面新建 channel1 max1 两个文件,压缩打包成新的ipa文件存放在渠道id文件夹下。
-
-参数定义: 
-参数1 原文件包目录 (包含ipa , 名字定义Maxer.ipa)
-参数2 渠道id
-参数3 友盟渠道id
-参数4 mask (生成文件Maxermask.ipa)
-
-! Note : 大部分自动化打包都是生成文件后放在payload文件夹下面,但苹果会校验导致安装包无法安装,因此放到 Payload/_CodeSignature 即可。(thanks to bin)
-
-
-
-如何使用: 
-
-// 读取渠道ID
-+ (NSString *)channel {
+`应用示例:`
+<pre><code>
+/*! 读取渠道ID */
+- (NSString *)channel {
     NSString *resourceDirectory = [[NSBundle mainBundle] resourcePath];
-    NSString *CodeSignaturePath = [resourceDirectory stringByAppendingPathComponent:@"/_CodeSignature/"];
-    NSArray* fileArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:CodeSignaturePath error:nil];
-    
-    for (NSString *filename in fileArray) {
-        if ([filename rangeOfString:@"max"].location != NSNotFound) {
-            return  [filename substringFromIndex:3];
-        }
-    }
-    return @"0";
+    NSString *CodeSignaturePath = [resourceDirectory stringByAppendingPathComponent:@"/_CodeSignature/AppInfo.plist"];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc]initWithContentsOfFile:CodeSignaturePath];
+    return [data objectForKey:@"channel"];
 }
+</code></pre>
 
-// 读取友盟渠道ID
-+ (NSString *)umengChannel {
-    NSString *resourceDirectory = [[NSBundle mainBundle] resourcePath];
-    NSString *CodeSignaturePath = [resourceDirectory stringByAppendingPathComponent:@"/_CodeSignature/"];
-    NSArray* fileArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:CodeSignaturePath error:nil];
-    
-    for (NSString *filename in fileArray) {
-        if ([filename rangeOfString:@"channel"].location != NSNotFound) {
-            return  [filename substringFromIndex:7];
-        }
-    }
-    return @"0";
-}
+`附注说明 :` 
+
+经过试验,若将AppInfo.plist放到Payload目录下,会导致生成的包安装失败。
+若将AppInfo.plist放到Playload/_CodeSignature里面,则生成的包安装成功。
+
+`示例工程`
+
+[https://github.com/XuYanci/iOS-AutoPackage](http://)
 
 
 
