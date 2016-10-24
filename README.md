@@ -44,7 +44,7 @@
 
 `示例工程`
 
-[https://github.com/XuYanci/iOS-AutoPackage](http://)
+[https://github.com/XuYanci/iOS-AutoPackage](https://github.com/XuYanci/iOS-AutoPackage)
 
 
 
