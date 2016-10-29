@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "798A97DCE4499CAEABC6430B64C938DA3314F661",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "798A97DCE4499CAEABC6430B64C938DA3314F661" : 9223372036854775807,
+    "6D97EA148573B3DEC0E705A25B78217DC12873FD" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3A1AB8E5-E37E-4149-A6AF-1C59B8381FE1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "798A97DCE4499CAEABC6430B64C938DA3314F661" : "iOS-AutoPackage\/",
+    "6D97EA148573B3DEC0E705A25B78217DC12873FD" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "autopackage",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "autopackage\/autopackage.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/XuYanci\/Monkey.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6D97EA148573B3DEC0E705A25B78217DC12873FD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/XuYanci\/iOS-AutoPackage",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "798A97DCE4499CAEABC6430B64C938DA3314F661"
+    }
+  ]
+}
